@@ -1,0 +1,36 @@
+{
+  "name": "express-parse",
+  "version": "1.0.0",
+  "description": "Simple request based parse.com REST wrapper, middleware for managing users in express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "lint": "jshint *.js",
+    "style": "jscs *.js"
+  },
+  "author": "Tony Morgan",
+  "homepage": "https://github.com/tmorgan/express-parse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmorgan/express-parse"
+  },
+  "license": "MIT",
+  "pre-commit": [
+    "lint",
+    "style",
+    "test"
+  ],
+  "keywords": [
+    "parse",
+    "parse.com",
+    "request",
+    "express",
+    "rest",
+    "auth"
+  ],
+  "dependencies": {
+    "memoizee": "^0.3.9",
+    "object-assign": "^4.0.1",
+    "request": "^2.65.0"
+  }
+}

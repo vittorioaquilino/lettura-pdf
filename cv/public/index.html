@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Lettura di un Cv</h1>
+    <input type="file" id="inpFile">
+    <button type="button" id="btnUpload">Upload</button>
+    <br>
+    <br>
+    <textarea style="width: 600px; height: 400px;" id="result" placeholder="Qui apparirà il tuo file PDF" >
+    </textarea>
+    <script>
+        const btnUpload = document.getElementById('btnUpload');
+        const inpFile = document.getElementById('inpFile');
+        const result = document.getElementById('result');
+
+        btnUpload.addEventListener('click', function() {
+            const formData = new FormData();
+            formData.append("pdfFile", inpFile.files[0]);
+            fetch("/extract-text", {
+                method: "POST",
+                body: formData
+            }).then (response => {
+                return response.text();
+            }).then (extractedText => {
+                result.value = extractedText.trim();
+            });
+        })
+
+    </script>
+</body>
+</html>
